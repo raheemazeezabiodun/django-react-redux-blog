@@ -22,3 +22,8 @@ python-dateutil==2.6.1
 cloudinary==1.11.0
 
 django-rest-knox==3.0.3
+
+beautifulsoup4==4.6.0
+
+pillow==5.0.0
+django-ckeditor==5.4.0
