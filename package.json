@@ -37,8 +37,13 @@
     "webpack-dev-server": "^3.1.1"
   },
   "dependencies": {
+    "material-ui": "^0.20.0",
     "path": "^0.12.7",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0"
   }
 }

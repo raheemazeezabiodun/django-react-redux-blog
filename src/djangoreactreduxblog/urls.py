@@ -18,6 +18,7 @@ from django.conf.urls import url, include
 
 urlpatterns = [
     url('admin/', admin.site.urls),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^api/v1/accounts/', include('accounts.urls', namespace='accounts')),
     url(r'^api/v1/blog/', include('blog.urls', namespace='blog')),
 ]

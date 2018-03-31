@@ -117,3 +117,11 @@ class User(AbstractBaseUser):
         :return: string
         """
         return self.first_name
+
+    def has_perm(self, perm, obj=None):
+        """Check if User has permission."""
+        return self.is_superuser
+
+    def has_module_perms(self, app_label):
+        """Check if User has permissions for module."""
+        return self.is_superuser

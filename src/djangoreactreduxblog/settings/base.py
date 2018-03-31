@@ -33,7 +33,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
     'django.contrib.messages',
     'django.contrib.sessions',
     'django.contrib.admin',
@@ -41,6 +43,9 @@ INSTALLED_APPS = (
     'rest_framework',
     'knox',
     'django_extensions',
+    'raven.contrib.django.raven_compat',
+    'ckeditor',
+    'ckeditor_uploader',
 
     'accounts',
     'blog',
@@ -132,3 +137,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_ALLOW_NONIMAGE_FILES = False
