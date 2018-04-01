@@ -15,10 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf.urls import url, include
+from django.views.decorators.cache import cache_page
+from django.conf import settings
+
+from accounts.views import IndexView
 
 urlpatterns = [
     url('admin/', admin.site.urls),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    # catch all others because of how history is handled by react router - cache this page because it will never change
     url(r'^api/v1/accounts/', include('accounts.urls', namespace='accounts')),
     url(r'^api/v1/blog/', include('blog.urls', namespace='blog')),
+    url(r'', cache_page(settings.PAGE_CACHE_SECONDS)(IndexView.as_view()), name='index'),
 ]

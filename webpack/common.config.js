@@ -24,8 +24,7 @@ const VENDOR = [
     'redux',
     'react-router-redux',
     'jquery',
-    'bootstrap-loader',
-    'font-awesome-webpack!./styles/font-awesome.config.prod.js'
+    'bootstrap-loader'
 ];
 
 const basePath = path.resolve(__dirname, '../src/static/');

@@ -1,8 +1,34 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import createHistory from 'history/createBrowserHistory';
 
-const Index = () => {
-  return <div>Hello React!</div>;
-};
 
-ReactDOM.render(<Index />, document.getElementById("root"));
+import { authLoginUserSuccess } from './actions/auth';
+import configureStore from './store/configureStore';
+import App from './app';
+
+
+const initialState = {};
+const target = document.getElementById('root');
+
+const history = createHistory();
+const store = configureStore(initialState, history);
+
+const node = (
+    <App store={store} history={history} />
+);
+
+
+const token = sessionStorage.getItem('token');
+let user = {};
+try {
+    user = JSON.parse(sessionStorage.getItem('user'));
+} catch (e) {
+    // Failed to parse
+}
+
+if (token !== null) {
+    store.dispatch(authLoginUserSuccess(token, user));
+}
+
+ReactDOM.render(node, target);
