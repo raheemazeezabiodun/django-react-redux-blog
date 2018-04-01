@@ -1,0 +1,1 @@
+https://travis-ci.org/raheemazeezabiodun/django-react-redux-blog.svg?branch=master
