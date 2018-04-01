@@ -20,6 +20,7 @@ python-dateutil==2.6.1
 
 # cloudinary
 cloudinary==1.11.0
+django-cloudinary-storage==0.2.3
 
 django-rest-knox==3.0.3
 

@@ -34,4 +34,3 @@ class IndexView(View):
     def get(self, request):
         abspath = open(os.path.join(settings.BASE_DIR, 'static_dist/index.html'), 'r')
         return HttpResponse(content=abspath.read())
-
