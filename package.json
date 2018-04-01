@@ -56,11 +56,13 @@
     "jquery": "3.2.1",
     "less": "2.7.2",
     "less-loader": "4.0.5",
+    "material-ui": "^0.20.0",
     "node-sass": "4.5.3",
     "postcss-import": "10.0.0",
     "postcss-loader": "2.0.6",
     "prop-types": "15.5.10",
     "react": "15.6.1",
+    "react-ckeditor-component": "^1.0.7",
     "react-dom": "15.6.1",
     "react-mixin": "3.1.0",
     "react-redux": "5.0.6",
@@ -77,8 +79,7 @@
     "webpack": "3.5.5",
     "webpack-merge": "4.1.0",
     "whatwg-fetch": "2.0.3",
-    "yargs": "8.0.2",
-    "material-ui": "^0.20.0"
+    "yargs": "8.0.2"
   },
   "devDependencies": {
     "babel-eslint": "7.2.3",

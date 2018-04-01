@@ -3,11 +3,13 @@ import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
+import { push } from 'react-router-redux';
+import { connect } from 'react-redux';
 
 import { APP_NAME } from '../constants';
 
 
-export default class AppHeader extends React.Component {
+class AppHeader extends React.Component {
 
   constructor(props) {
     super(props);
@@ -15,6 +17,10 @@ export default class AppHeader extends React.Component {
   }
 
   handleToggle = () => this.setState({open: !this.state.open});
+
+  goToRoute = (route) => {
+    this.props.dispatch(push(route));
+  }
 
   render() {
     return (
@@ -30,7 +36,7 @@ export default class AppHeader extends React.Component {
             width={200}
             onRequestChange={(open) => this.setState({open})}
         >
-            <MenuItem>Create Blog</MenuItem>
+            <MenuItem onClick={this.goToRoute('/blog/create')}>Create Blog</MenuItem>
             <MenuItem>List Blog</MenuItem>
             <MenuItem>Logout</MenuItem>
         </Drawer>
@@ -38,3 +44,5 @@ export default class AppHeader extends React.Component {
     );
   }
 }
+
+export default connect()(AppHeader);

@@ -11,8 +11,8 @@ from blog.models import Blog
 
 class FetchBlogView(GenericAPIView, AtomicMixin):
     serializer_class = BlogSerializer
-    #authentication_classes = (TokenAuthentication,)
-    #permission_classes = (IsAuthenticated,)
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthenticated,)
 
     def get(self, request):
         blog = Blog.objects.filter(is_active=True)
