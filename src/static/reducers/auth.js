@@ -28,10 +28,10 @@ export default createReducer(initialState, {
             isAuthenticating: false,
             isAuthenticated: true,
             firstName: payload.user.first_name,
-            lastNAme: payload.user.last_name,
+            lastName: payload.user.last_name,
             email: payload.user.email,
             token: payload.token,
-            userUUID: payload.user.userUUID
+            userUUID: payload.user.id
         });
     },
     [AUTH_LOGIN_FAILURE]: (state, payload) => {

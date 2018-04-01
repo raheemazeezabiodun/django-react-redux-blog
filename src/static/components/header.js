@@ -11,7 +11,7 @@ export default class AppHeader extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {open: false};
+    this.state = {open: true};
   }
 
   handleToggle = () => this.setState({open: !this.state.open});
@@ -22,12 +22,14 @@ export default class AppHeader extends React.Component {
         <AppBar
           title={APP_NAME}
           iconClassNameRight="muidocs-icon-navigation-expand-more"
+          onLeftIconButtonClick={this.handleToggle}
         />
-        <RaisedButton
-          label="Toggle Drawer"
-          onClick={this.handleToggle}
-        />
-        <Drawer open={this.state.open}>
+        <Drawer 
+            containerStyle={{marginTop: 65}}
+            open={this.state.open}
+            width={200}
+            onRequestChange={(open) => this.setState({open})}
+        >
             <MenuItem>Create Blog</MenuItem>
             <MenuItem>List Blog</MenuItem>
             <MenuItem>Logout</MenuItem>

@@ -42,28 +42,28 @@ export function authLogout() {
 }
 
 export function authLogin(email, password, redirect='/') {
-    return (dispacth) => {
-        dispacth(authLoginRequest());
+    return (dispatch) => {
+        dispatch(authLoginRequest());
         const token = btoa(`${email}:${password}`);
-        return fetch(`${SERVER_URL}/api/v1/accounts/login`, {
+        return fetch(`${SERVER_URL}/api/v1/accounts/login/`, {
             method: 'post',
             headers: {
-                Accept: 'application/json',
+                'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                Authorization: `Basic ${token}`
+                'Authorization': `Basic ${token}`
             }
         })
             .then(checkHttpStatus)
             .then(parseJSON)
             .then((response) => {
-                dispacth(authLoginSuccess(response.token, response.user));
-                dispacth(push(redirect));
+                dispatch(authLoginSuccess(response.token, response.user));
+                dispatch(push(redirect));
             })
             .catch((error) => {
                 if (error && typeof error.response !== 'undefined' && error.response.status === 401) {
                     // invalid authentication credentials
                     return error.response.json().then((data) => {
-                        dispacth(authLoginFailure(401, data.data.non_field_errors[0]));
+                        dispatch(authLoginFailure(401, data.data.non_field_errors[0]));
                     });
                 }
                 else if (error && typeof error.response !== 'undefined' && error.response.status >= 500) {

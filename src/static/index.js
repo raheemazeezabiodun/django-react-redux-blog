@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import createHistory from 'history/createBrowserHistory';
 
 
-import { authLoginUserSuccess } from './actions/auth';
+import { authLoginSuccess } from './actions/auth';
 import configureStore from './store/configureStore';
 import App from './app';
 
@@ -28,7 +28,7 @@ try {
 }
 
 if (token !== null) {
-    store.dispatch(authLoginUserSuccess(token, user));
+    store.dispatch(authLoginSuccess(token, user));
 }
 
 ReactDOM.render(node, target);
