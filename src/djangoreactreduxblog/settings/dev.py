@@ -1,10 +1,8 @@
-from djangoreactreduxblog.settings.base import *
+from djangoreactreduxblog.settings.base import *    # NOQA (ignore all errors on this line)
 
 DEBUG = True
 
 PAGE_CACHE_SECONDS = 1
-
-#REST_FRAMEWORK['EXCEPTION_HANDLER'] = 'django_rest_logger.handlers.rest_exception_handler'  # NOQA (ignore all errors on this line)
 
 DATABASES = {
     'default': {
@@ -24,5 +22,5 @@ CLOUDINARY_STORAGE = {
 }
 
 RAVEN_CONFIG = {
-  'dsn': 'https://e36d36aa5b2744498fdc96d4b8be1cd6:10b70ff4601044afb07fc8e56c7377a2@sentry.io/285132',
+    'dsn': 'https://e36d36aa5b2744498fdc96d4b8be1cd6:10b70ff4601044afb07fc8e56c7377a2@sentry.io/285132'
 }

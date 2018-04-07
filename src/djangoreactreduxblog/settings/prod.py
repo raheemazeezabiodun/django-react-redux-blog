@@ -1,4 +1,4 @@
-from djangoreactreduxblog.settings.base import *
+from djangoreactreduxblog.settings.base import *  # NOQA (ignore all errors on this line)
 
 
 CLOUDINARY_STORAGE = {
@@ -8,5 +8,5 @@ CLOUDINARY_STORAGE = {
 }
 
 RAVEN_CONFIG = {
-  'dsn': 'your dsn',
+    'dsn': 'your dsn',
 }

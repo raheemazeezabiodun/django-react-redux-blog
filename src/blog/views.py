@@ -15,12 +15,14 @@ class FetchBlogView(GenericAPIView, AtomicMixin):
     permission_classes = (IsAuthenticated,)
 
     def get(self, request):
+        """Get request."""
         blog = Blog.objects.filter(is_active=True)
         serializer = self.get_serializer(blog, many=True)
 
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
+        """Create a new blog data."""
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             new_blog = serializer.save()

@@ -1,5 +1,3 @@
-import uuid
-
 import base64
 from django.core.urlresolvers import reverse
 from rest_framework import status

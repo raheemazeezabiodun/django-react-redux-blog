@@ -10,6 +10,7 @@ class MyUserManager(BaseUserManager):
     def _create_user(self, email, password, first_name, last_name, is_staff, is_superuser, **extra_fields):
         """
         Create and save an User with the given email, password, name and phone number.
+
         :param email: string
         :param password: string
         :param first_name: string
@@ -37,6 +38,7 @@ class MyUserManager(BaseUserManager):
     def create_user(self, email, first_name, last_name, password, **extra_fields):
         """
         Create and save an User with the given email, password and name.
+
         :param email: string
         :param first_name: string
         :param last_name: string
@@ -51,6 +53,7 @@ class MyUserManager(BaseUserManager):
     def create_superuser(self, email, first_name='', last_name='', password=None, **extra_fields):
         """
         Create a super user.
+
         :param email: string
         :param first_name: string
         :param last_name: string
@@ -65,6 +68,7 @@ class MyUserManager(BaseUserManager):
 class User(AbstractBaseUser):
     """
     Model that represents an user.
+
     To be active, the user must register and confirm his email.
     """
 
@@ -100,6 +104,7 @@ class User(AbstractBaseUser):
     def __str__(self):
         """
         Unicode representation for an user model.
+
         :return: string
         """
         return self.email
@@ -107,6 +112,7 @@ class User(AbstractBaseUser):
     def get_full_name(self):
         """
         Return the first_name plus the last_name, with a space in between.
+
         :return: string
         """
         return "{0} {1}".format(self.first_name, self.last_name)
@@ -114,6 +120,7 @@ class User(AbstractBaseUser):
     def get_short_name(self):
         """
         Return the first_name.
+
         :return: string
         """
         return self.first_name

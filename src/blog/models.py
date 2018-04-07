@@ -25,6 +25,7 @@ class Blog(models.Model):
 
     @property
     def image(self):
+        """Get the first image of blog post."""
         try:
             soup = BeautifulSoup(self.content, 'html.parser')
             image = soup.select('img')[0]
@@ -34,5 +35,6 @@ class Blog(models.Model):
 
     @property
     def blog_text(self):
+        """Get the content of the blog without image."""
         soup = BeautifulSoup(self.content, 'html.parser')
         return soup.get_text()

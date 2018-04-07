@@ -26,6 +26,7 @@ def validate_email(value):
 class AtomicMixin(object):
     """
     Ensure we rollback db transactions on exceptions.
+
     From https://gist.github.com/adamJLev/7e9499ba7e436535fd94
     """
 

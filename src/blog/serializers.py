@@ -13,6 +13,7 @@ class BlogSerializer(serializers.ModelSerializer):
         fields = ('title', 'slug', 'content',)
 
     def to_representation(self, instance):
+        """Get the data."""
         return {
             'id': instance.id,
             'title': instance.title,
