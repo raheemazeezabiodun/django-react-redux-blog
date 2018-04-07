@@ -37,7 +37,7 @@ class AppHeader extends React.Component {
             onRequestChange={(open) => this.setState({open})}
         >
             <MenuItem onClick={this.goToRoute('/blog/create')}>Create Blog</MenuItem>
-            <MenuItem>List Blog</MenuItem>
+            <MenuItem onClick={this.goToRoute('/blog/list')}>List Blog</MenuItem>
             <MenuItem>Logout</MenuItem>
         </Drawer>
       </div>

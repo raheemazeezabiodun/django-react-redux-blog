@@ -48,3 +48,46 @@ export function createBlog(data, token) {
             })
     }
 }
+
+export function fetchBlogRequest() {
+    return {
+        type: FETCH_BLOG_REQUEST
+    }
+}
+
+export function fetchBlogSuccess(data) {
+    return {
+        type: FETCH_BLOG_SUCCESS,
+        payload: {
+            data
+        }
+    }
+}
+
+export function fetchBlogFailure() {
+    return {
+        type: FETCH_BLOG_FAILURE
+    }
+}
+
+export function fetchBlog(token) {
+    return (dispacth) => {
+        dispacth(fetchBlogRequest());
+        return fetch(`${SERVER_URL}/api/v1/blog/`, {
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `Token ${token}`
+            }
+        })
+            .then(checkHttpStatus)
+            .then(parseJSON)
+            .then((response) => {
+                dispacth(fetchBlogSuccess(response))
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+}
