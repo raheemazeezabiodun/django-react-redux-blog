@@ -33,7 +33,6 @@ coverage/
 # static validation files
 .eslintrc
 .sass-lint.yml
-.prospector.yml
 .coveragerc
 
 # in case we run shippable tests don't include it
